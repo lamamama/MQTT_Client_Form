@@ -118,12 +118,17 @@ namespace mqtt_project
             this.chart1.Series[1].Color = Color.Red;
            
         }
-
+        /// <summary>
+        /// 改变日历的回调函数
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             string date=this.dateTimePicker1.Value.ToString("yyyy-MM-dd");
             Chart_DATA.Rows.Clear();
             Con_mysql();
+            Chain_Init();
             Chain_Init();
 
 
