@@ -60,7 +60,7 @@ namespace mqtt_project
                         if (reader.HasRows)
                         {
                             string date = reader["date"].ToString();
-                            string Pa_value = reader["RSSI"].ToString();
+                            string Pa_value = reader["Pa_value"].ToString();
                             string TEMP = reader["TEMP"].ToString();
                             Chart_DATA.Rows.Add(date, Pa_value, TEMP);
                             count = count + 1;

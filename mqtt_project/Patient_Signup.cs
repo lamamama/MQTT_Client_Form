@@ -7,7 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySqlConnector;
+using MySqlConnector.Authentication;
+using MySqlConnector.Logging;
+using MySql.Data.MySqlClient;
+using System.Runtime.InteropServices;
 namespace mqtt_project
 {
     public partial class Patient_Signup : Form
@@ -15,8 +19,6 @@ namespace mqtt_project
         public Patient_Signup()
         {
             InitializeComponent();
-            InitializeComponent();
-           
             SexComboBoxInit();
         }
 
@@ -24,7 +26,11 @@ namespace mqtt_project
         {
             this.Close();
         }
-
+        /// <summary>
+        /// 开始注册
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Submit_BTN_Click(object sender, EventArgs e)
         {
             if(this.Room_TextBox.Text==null|| this.Room_TextBox.Text =="")
@@ -58,15 +64,61 @@ namespace mqtt_project
                 this.PWD_TextBox.Text = null;
                 return;
             }
-            //执行注册
-            if (this.User_TextBox.Text == "医护人员账号")
-            {
+            ConMySQLByQuery(this.Room_TextBox.Text, this.User_TextBox.Text,this.Sex_CcomboBox.Text, this.Account_TextBox.Text, this.Phone_TextBox.Text, this.PWD_TextBox.Text);
 
-            }
-            else
-            {
 
+
+        }
+        /// <summary>
+        /// 插入用户数据
+        /// </summary>
+        /// <param name="room"></param>
+        /// <param name="name"></param>
+        /// <param name="sex"></param>
+        /// <param name="account"></param>
+        /// <param name="phone"></param>
+        /// <param name="passwd"></param>
+        public void ConMySQLByQuery(string room, string name,string sex,string account,string phone,string passwd)
+        {
+            
+            string connecStr = "Server=2001:da8:270:2018:f816:3eff:fe1d:bb01;User ID=root;Password=lama940225;Database=MQTT_DATA";
+            try
+            {
+                using (var conn = new MySqlConnection(connecStr))
+                {
+                    conn.Open();
+                    MySqlTransaction trans = conn.BeginTransaction();
+                    try
+                    {
+                        MySqlCommand cmd = new MySqlCommand("INSERT INTO Patient_Login_Hospital (Account,Identity,sex,phone,passwd,room,type,isValid) values( " + "'"+name+"',"+"'"+account+"'," + "'" + sex + "'," + "'" + phone + "'," + "'" + passwd + "'," + "'" + room + "'" + ", 'customer','1' );");
+                        cmd.Connection = conn;
+                        cmd.Transaction = trans;
+                        int count = cmd.ExecuteNonQuery();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("注册成功");
+                        }
+                        else {
+                            MessageBox.Show("注册失败");
+                        }
+                        trans.Commit();
+                        conn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        trans.Rollback();
+                        conn.Close();
+                        MessageBox.Show(ex.ToString());
+                    }
+
+
+                }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
         /// <summary>
         /// 初始化性别下拉框
@@ -78,10 +130,7 @@ namespace mqtt_project
             this.Sex_CcomboBox.SelectedIndex = 0;
         }
 
-        private void Phone_TextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+       
         
         
     }

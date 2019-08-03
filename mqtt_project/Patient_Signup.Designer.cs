@@ -124,7 +124,6 @@
             this.Phone_TextBox.Name = "Phone_TextBox";
             this.Phone_TextBox.Size = new System.Drawing.Size(198, 21);
             this.Phone_TextBox.TabIndex = 9;
-            this.Phone_TextBox.TextChanged += new System.EventHandler(this.Phone_TextBox_TextChanged);
             // 
             // Phone_Label
             // 

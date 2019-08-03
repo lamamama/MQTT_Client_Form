@@ -7,7 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using MySqlConnector;
+using MySqlConnector.Authentication;
+using MySqlConnector.Logging;
+using MySql.Data.MySqlClient;
+using System.Runtime.InteropServices;
 namespace mqtt_project
 {
     public partial class signup : Form
@@ -52,15 +56,9 @@ namespace mqtt_project
                 this.PWD_TextBox.Text = null;
                 return;
             }
-            
+
             //执行注册
-            if (this.User_TextBox.Text == "医护人员账号")
-            {
-
-            } else
-            {
-
-            }
+            ConMySQLByQuery(this.User_TextBox.Text,this.Sex_CcomboBox.Text, this.Account_TextBox.Text, this.Phone_TextBox.Text, this.PWD_TextBox.Text);
         }
         /// <summary>
         /// 初始化账号类型下拉框
@@ -81,10 +79,6 @@ namespace mqtt_project
             this.Sex_CcomboBox.SelectedIndex = 0;
         }
 
-        private void Phone_TextBox_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
         /// <summary>
         /// 当切换用户类型时，首先隐藏该界面，然后打开，当子界面关闭后，关闭该界面
         /// </summary>
@@ -99,6 +93,57 @@ namespace mqtt_project
                 P.ShowDialog();
                 this.Close();
             }
+        }
+        /// <summary>
+        /// 连接数据库插入
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="sex"></param>
+        /// <param name="account"></param>
+        /// <param name="phone"></param>
+        /// <param name="passwd"></param>
+        public void ConMySQLByQuery(string name, string sex, string account, string phone, string passwd)
+        {
+
+            string connecStr = "Server=2001:da8:270:2018:f816:3eff:fe1d:bb01;User ID=root;Password=lama940225;Database=MQTT_DATA";
+            try
+            {
+                using (var conn = new MySqlConnection(connecStr))
+                {
+                    conn.Open();
+                    MySqlTransaction trans = conn.BeginTransaction();
+                    try
+                    {
+                        MySqlCommand cmd = new MySqlCommand("insert into Worker_Login_Hospital (Account,Identity,sex,phone,passwd,type,isValid) values( " + "'" + name + "'," + "'" + account + "'," + "'" + sex + "'," + "'" + phone + "'," + "'" + passwd + "'" + ", 'Worker','1' ) ;");
+                        cmd.Connection = conn;
+                        cmd.Transaction = trans;
+                        int count = cmd.ExecuteNonQuery();
+                        if (count > 0)
+                        {
+                            MessageBox.Show("注册成功");
+                        }
+                        else
+                        {
+                            MessageBox.Show("注册失败");
+                        }
+                        trans.Commit();
+                        conn.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        trans.Rollback();
+                        conn.Close();
+                        MessageBox.Show(ex.ToString());
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
     }
 }

@@ -73,13 +73,32 @@ namespace mqtt_project
                         using (var reader = cmd.ExecuteReader())
                         {
 
-                            while (reader.Read())
+
+                            if (reader.HasRows)
                             {
-                                if (reader.HasRows)
+                                //登陆成功
+                                string room = null;
+                                while (reader.Read())
                                 {
-                                    //登陆成功
+                                    if(this.UserType_ComboBox.Text=="病患账号")
+                                    room = reader["room"].ToString();
+                                    
+                                }
+                                if (this.UserType_ComboBox.Text == "病患账号")
+                                {
+                                    WorkerForm W = new WorkerForm();
+                                    this.Visible = false;
+                                    W.Show();
+                                    this.Close();
                                 }
                                 else
+                                {
+
+                                }
+
+
+                            }
+                            else
                                 {
                                     //登陆失败
                                     MessageBox.Show("用户名或密码错误，请重新输入");
@@ -87,7 +106,7 @@ namespace mqtt_project
                                     this.PWD_TextBox.Text = null;
                                 }
 
-                            }
+                            
                         }
                         trans.Commit();
                         conn.Close();
@@ -108,14 +127,17 @@ namespace mqtt_project
             }
             
         }
-
+        /// <summary>
+        /// 当注册时，隐藏当前窗口，打开注册界面
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SignUp_BTN_Click(object sender, EventArgs e)
         {
             signup S = new signup();
-            this.Visible=false;
+            this.Visible = false;
             S.ShowDialog();
-           
-                this.Visible = true;
+            this.Visible = true;
 
 
         }
