@@ -56,7 +56,6 @@
             this.chart1.Size = new System.Drawing.Size(794, 354);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
-            this.chart1.Click += new System.EventHandler(this.chart1_Click);
             // 
             // tableLayoutPanel1
             // 

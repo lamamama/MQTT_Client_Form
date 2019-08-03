@@ -139,5 +139,11 @@ namespace mqtt_project
             HistoryForm HF = new HistoryForm();
             HF.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Login L1 = new Login();
+            L1.Show();
+        }
     }
 }

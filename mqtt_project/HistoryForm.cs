@@ -82,10 +82,6 @@ namespace mqtt_project
             Chart_DATA.Columns.Add("TEMP");
         }
 
-        private void chart1_Click(object sender, EventArgs e)
-        {
-
-        }
         /// <summary>
         /// 测试数据
         /// </summary>
@@ -129,9 +125,6 @@ namespace mqtt_project
             Chart_DATA.Rows.Clear();
             Con_mysql();
             Chain_Init();
-            Chain_Init();
-
-
         }
     }
 }
