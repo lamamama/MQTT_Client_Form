@@ -83,6 +83,7 @@
             this.Room_ComboBox.Name = "Room_ComboBox";
             this.Room_ComboBox.Size = new System.Drawing.Size(154, 20);
             this.Room_ComboBox.TabIndex = 2;
+            this.Room_ComboBox.SelectedIndexChanged += new System.EventHandler(this.Room_ComboBox_SelectedIndexChanged);
             // 
             // Name_Text_Label
             // 
