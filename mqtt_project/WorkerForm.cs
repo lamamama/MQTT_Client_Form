@@ -254,5 +254,19 @@ namespace mqtt_project
         public string VDD3 { get; set; }
         public string ALL_L { get; set; }
     }
-}
+
+        private void History_BTN_Click(object sender, EventArgs e)
+        {
+            HistoryForm F = new HistoryForm();
+            F.ROOM=this.Room_ComboBox.Text;
+            this.Visible = false;
+            F.Show();
+            this.Visible = true;
+        }
+
+        private void Control_BTN_Click(object sender, EventArgs e)
+        {
+            //氧气设备开关
+        }
+    }
 }

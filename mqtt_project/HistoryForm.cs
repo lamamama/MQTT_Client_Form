@@ -13,10 +13,12 @@ using MySqlConnector.Logging;
 using MySql.Data.MySqlClient;
 using System.Runtime.InteropServices;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Configuration;
 namespace mqtt_project
 {
     public partial class HistoryForm : Form
     {
+        public string ROOM=null;
         /// <summary>
         /// 保存用于折线图
         /// </summary>
@@ -33,10 +35,12 @@ namespace mqtt_project
 
         private void HistoryForm_Load(object sender, EventArgs e)
         {
+            
             Init_Chart_DATA();//初始化DATATable
             Con_mysql();
             //Test_Date();
             Chain_Init();
+            
         }
         
         /// <summary>

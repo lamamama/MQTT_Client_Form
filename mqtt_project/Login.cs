@@ -82,6 +82,12 @@ namespace mqtt_project
                                 {
                                     if(this.UserType_ComboBox.Text=="病患账号")
                                     room = reader["room"].ToString();
+                                    PatientForm F = new PatientForm();
+                                    F.room = room;
+                                    this.Visible = false;
+                                    F.name = (reader["Account"].ToString());
+                                    F.Show();
+                                    this.Close();
                                     
                                 }
                                 if (this.UserType_ComboBox.Text == "病患账号")
