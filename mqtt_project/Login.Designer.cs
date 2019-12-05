@@ -45,9 +45,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.PWD_Label, 2);
             this.PWD_Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PWD_Label.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.PWD_Label.Location = new System.Drawing.Point(58, 140);
+            this.PWD_Label.Location = new System.Drawing.Point(78, 174);
+            this.PWD_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PWD_Label.Name = "PWD_Label";
-            this.PWD_Label.Size = new System.Drawing.Size(104, 70);
+            this.PWD_Label.Size = new System.Drawing.Size(140, 87);
             this.PWD_Label.TabIndex = 1;
             this.PWD_Label.Text = "密码：";
             this.PWD_Label.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -56,18 +57,20 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.User_TextBox, 4);
             this.User_TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.User_TextBox.Location = new System.Drawing.Point(168, 73);
+            this.User_TextBox.Location = new System.Drawing.Point(226, 91);
+            this.User_TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.User_TextBox.Name = "User_TextBox";
-            this.User_TextBox.Size = new System.Drawing.Size(214, 21);
+            this.User_TextBox.Size = new System.Drawing.Size(288, 25);
             this.User_TextBox.TabIndex = 2;
             // 
             // PWD_TextBox
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.PWD_TextBox, 4);
             this.PWD_TextBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PWD_TextBox.Location = new System.Drawing.Point(168, 143);
+            this.PWD_TextBox.Location = new System.Drawing.Point(226, 178);
+            this.PWD_TextBox.Margin = new System.Windows.Forms.Padding(4);
             this.PWD_TextBox.Name = "PWD_TextBox";
-            this.PWD_TextBox.Size = new System.Drawing.Size(214, 21);
+            this.PWD_TextBox.Size = new System.Drawing.Size(288, 25);
             this.PWD_TextBox.TabIndex = 3;
             this.PWD_TextBox.UseSystemPasswordChar = true;
             // 
@@ -75,9 +78,10 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.Login_BTN, 2);
             this.Login_BTN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Login_BTN.Location = new System.Drawing.Point(278, 213);
+            this.Login_BTN.Location = new System.Drawing.Point(374, 265);
+            this.Login_BTN.Margin = new System.Windows.Forms.Padding(4);
             this.Login_BTN.Name = "Login_BTN";
-            this.Login_BTN.Size = new System.Drawing.Size(104, 64);
+            this.Login_BTN.Size = new System.Drawing.Size(140, 79);
             this.Login_BTN.TabIndex = 4;
             this.Login_BTN.Text = "登陆";
             this.Login_BTN.UseVisualStyleBackColor = true;
@@ -87,9 +91,10 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.SignUp_BTN, 2);
             this.SignUp_BTN.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SignUp_BTN.Location = new System.Drawing.Point(113, 213);
+            this.SignUp_BTN.Location = new System.Drawing.Point(152, 265);
+            this.SignUp_BTN.Margin = new System.Windows.Forms.Padding(4);
             this.SignUp_BTN.Name = "SignUp_BTN";
-            this.SignUp_BTN.Size = new System.Drawing.Size(104, 64);
+            this.SignUp_BTN.Size = new System.Drawing.Size(140, 79);
             this.SignUp_BTN.TabIndex = 5;
             this.SignUp_BTN.Text = "注册";
             this.SignUp_BTN.UseVisualStyleBackColor = true;
@@ -117,6 +122,7 @@
             this.tableLayoutPanel1.Controls.Add(this.UserType_ComboBox, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 5;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -124,7 +130,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(556, 350);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(741, 438);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // User_Label
@@ -133,9 +139,10 @@
             this.tableLayoutPanel1.SetColumnSpan(this.User_Label, 2);
             this.User_Label.Dock = System.Windows.Forms.DockStyle.Fill;
             this.User_Label.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.User_Label.Location = new System.Drawing.Point(58, 70);
+            this.User_Label.Location = new System.Drawing.Point(78, 87);
+            this.User_Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.User_Label.Name = "User_Label";
-            this.User_Label.Size = new System.Drawing.Size(104, 70);
+            this.User_Label.Size = new System.Drawing.Size(140, 87);
             this.User_Label.TabIndex = 1;
             this.User_Label.Text = "用户名：";
             this.User_Label.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -147,17 +154,19 @@
             this.UserType_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UserType_ComboBox.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.UserType_ComboBox.FormattingEnabled = true;
-            this.UserType_ComboBox.Location = new System.Drawing.Point(3, 3);
+            this.UserType_ComboBox.Location = new System.Drawing.Point(4, 4);
+            this.UserType_ComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.UserType_ComboBox.Name = "UserType_ComboBox";
-            this.UserType_ComboBox.Size = new System.Drawing.Size(159, 22);
+            this.UserType_ComboBox.Size = new System.Drawing.Size(214, 25);
             this.UserType_ComboBox.TabIndex = 6;
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 350);
+            this.ClientSize = new System.Drawing.Size(741, 438);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.Text = "登陆界面";
             this.tableLayoutPanel1.ResumeLayout(false);
